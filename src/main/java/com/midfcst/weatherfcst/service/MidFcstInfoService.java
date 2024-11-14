@@ -14,19 +14,19 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class WeatherService {
+public class MidFcstInfoService {
 
     private final RestTemplate restTemplate;
-    private final String baseUrl = "http://apis.data.go.kr/1360000";
+    private final String baseUrl = "http://apis.data.go.kr/1360000/MidFcstInfoService";
     private final String type = "JSON";
-    @Value("${service-key}")
+    @Value("${mid-service-key}")
     private String serviceKey;
 
     public ResponseEntity<String> getMidFcst(String pageNo, String numOfRows, String stnId,
         String tmFc) {
         log.info("Service : getMidFcst");
 
-        String uri = UriComponentsBuilder.fromHttpUrl(baseUrl + "/MidFcstInfoService/getMidFcst")
+        String uri = UriComponentsBuilder.fromHttpUrl(baseUrl + "/getMidFcst")
             .queryParam("serviceKey", serviceKey)
             .queryParam("dataType", type)
             .queryParam("pageNo", pageNo)
