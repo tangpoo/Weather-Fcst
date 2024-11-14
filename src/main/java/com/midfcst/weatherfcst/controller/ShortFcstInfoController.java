@@ -1,6 +1,6 @@
 package com.midfcst.weatherfcst.controller;
 
-import com.midfcst.weatherfcst.service.WeatherService;
+import com.midfcst.weatherfcst.service.ShortFcstInfoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -13,18 +13,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("/api/weather")
 @Slf4j
-public class WeatherController {
+public class ShortFcstInfoController {
 
-    private final WeatherService weatherService;
+    private final ShortFcstInfoService shortFcstInfoService;
 
-    @GetMapping(value = "/mid-fcst")
-    public ResponseEntity<String> getMidFcst(
+    @GetMapping("/short-ncst")
+    public ResponseEntity<String> getUltraSrtNcst(
         @RequestParam String pageNo,
         @RequestParam String numOfRows,
-        @RequestParam String stnId,
-        @RequestParam String tmFc
+        @RequestParam String base_date,
+        @RequestParam String base_time,
+        @RequestParam String nx,
+        @RequestParam String ny
     ) {
-        log.info("Controller : getMidFcst");
-        return weatherService.getMidFcst(pageNo, numOfRows, stnId, tmFc);
+        log.info("Controller : getUltraSrtNcst");
+        return shortFcstInfoService.getUltraSrtNcst(pageNo, numOfRows, base_date, base_time, nx, ny);
     }
 }
