@@ -1,8 +1,8 @@
 <aspectj>
-  <weaver>
-    <include within="com.weather.weatherfcst..*"/>
-  </weaver>
-  <aspects>
-    <aspect name="com.weather.weatherfcst.aop.LoggingAspect"/>
-  </aspects>
+<aspects>
+  <aspect name="com.weather.weatherfcst.aop.LoggingAspect"/>
+</aspects>
+<weaver>
+  <include within="com.weather.weatherfcst..*"/>
+</weaver>
 </aspectj>

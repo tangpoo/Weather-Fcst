@@ -11,7 +11,7 @@ public class LoggingAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
-    @Before("execution(* com.weather.weatherfcst.*(..))")
+    @Before("execution(* com.weather.weatherfcst..*(..))")
     public void logBeforeMethod(JoinPoint joinPoint) {
         logger.info("Method called: " + joinPoint.getSignature());
     }
