@@ -23,11 +23,6 @@ dependencies {
     implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.15.2'
     implementation 'org.springframework.boot:spring-boot-starter-aop'
 
-    // Logback for SLF4J implementation (backend)
-    implementation 'ch.qos.logback:logback-classic:1.4.11'
-
-    implementation 'org.slf4j:slf4j-api:2.0.9'
-
     // AspectJ dependencies
     implementation 'org.aspectj:aspectjrt:1.9.19'
     implementation 'org.aspectj:aspectjweaver:1.9.19'

@@ -1,7 +1,6 @@
 package com.weather.weatherfcst.service;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -13,7 +12,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class MidFcstInfoService {
 
     private final RestTemplate restTemplate;
@@ -24,7 +22,6 @@ public class MidFcstInfoService {
 
     public ResponseEntity<String> getMidFcst(String pageNo, String numOfRows, String stnId,
         String tmFc) {
-        log.info("Service : getMidFcst");
 
         String uri = UriComponentsBuilder.fromHttpUrl(baseUrl + "/getMidFcst")
             .queryParam("serviceKey", serviceKey)
