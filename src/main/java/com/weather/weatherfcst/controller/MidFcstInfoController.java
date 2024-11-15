@@ -1,6 +1,6 @@
-package com.midfcst.weatherfcst.controller;
+package com.weather.weatherfcst.controller;
 
-import com.midfcst.weatherfcst.service.MidFcstInfoService;
+import com.weather.weatherfcst.service.MidFcstInfoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

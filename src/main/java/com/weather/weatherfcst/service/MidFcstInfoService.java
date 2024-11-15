@@ -1,4 +1,4 @@
-package com.midfcst.weatherfcst.service;
+package com.weather.weatherfcst.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,29 +14,25 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class ShortFcstInfoService {
+public class MidFcstInfoService {
 
     private final RestTemplate restTemplate;
-    private final String baseUrl = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0";
+    private final String baseUrl = "http://apis.data.go.kr/1360000/MidFcstInfoService";
     private final String type = "JSON";
-    @Value("${short-service-key}")
+    @Value("${mid-service-key}")
     private String serviceKey;
 
-    public ResponseEntity<String> getUltraSrtNcst(String pageNo, String numOfRows,
-        String baseDate, String baseTime,
-        String nx, String ny) {
+    public ResponseEntity<String> getMidFcst(String pageNo, String numOfRows, String stnId,
+        String tmFc) {
+        log.info("Service : getMidFcst");
 
-        log.info("Service : getUltraSrtNcst");
-
-        String uri = UriComponentsBuilder.fromHttpUrl(baseUrl + "/getUltraSrtNcst")
+        String uri = UriComponentsBuilder.fromHttpUrl(baseUrl + "/getMidFcst")
             .queryParam("serviceKey", serviceKey)
+            .queryParam("dataType", type)
             .queryParam("pageNo", pageNo)
             .queryParam("numOfRows", numOfRows)
-            .queryParam("dataType", type)
-            .queryParam("baseDate", baseDate)
-            .queryParam("baseTime", baseTime)
-            .queryParam("nx", nx)
-            .queryParam("ny", ny)
+            .queryParam("stnId", stnId)
+            .queryParam("tmFc", tmFc)
             .toUriString();
 
         HttpHeaders headers = new HttpHeaders();

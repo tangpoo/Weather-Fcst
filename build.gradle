@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.3.5'
     id 'io.spring.dependency-management' version '1.1.6'
+    id "io.freefair.aspectj" version "5.1.1"
 }
 
 group = 'com.midfcst'
@@ -20,6 +21,16 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.15.2'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+
+    // Logback for SLF4J implementation (backend)
+    implementation 'ch.qos.logback:logback-classic:1.4.11'
+
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+
+    // AspectJ dependencies
+    implementation 'org.aspectj:aspectjrt:1.9.19'
+    implementation 'org.aspectj:aspectjweaver:1.9.19'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
@@ -30,4 +41,18 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+task withAllDependendiesJar(type: Jar) {
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+    manifest.from jar.manifest
+    archiveClassifier = "all"
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+    with jar
 }
