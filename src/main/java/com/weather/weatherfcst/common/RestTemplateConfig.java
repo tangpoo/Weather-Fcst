@@ -1,4 +1,4 @@
-package com.midfcst.weatherfcst.common;
+package com.weather.weatherfcst.common;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

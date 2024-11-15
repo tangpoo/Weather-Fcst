@@ -1,6 +1,5 @@
 spring:
   application:
     name: WeatherFcst
-
 mid-service-key: 8n60ZscywcCaGclSDiuVl6WGzU3W3x0dA%2BmI6G%2BykDp5%2Fspt%2BE3TuWzmQXqCbSpt62wOobx3QcCgjgYLVAAN4w%3D%3D
 short-service-key: 8n60ZscywcCaGclSDiuVl6WGzU3W3x0dA%2BmI6G%2BykDp5%2Fspt%2BE3TuWzmQXqCbSpt62wOobx3QcCgjgYLVAAN4w%3D%3D

@@ -1,4 +1,4 @@
-package com.midfcst.weatherfcst.application;
+package com.weather.weatherfcst.application;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;

@@ -1,7 +1,6 @@
-package com.midfcst.weatherfcst.service;
+package com.weather.weatherfcst.service;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -13,7 +12,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class ShortFcstInfoService {
 
     private final RestTemplate restTemplate;
@@ -25,8 +23,6 @@ public class ShortFcstInfoService {
     public ResponseEntity<String> getUltraSrtNcst(String pageNo, String numOfRows,
         String baseDate, String baseTime,
         String nx, String ny) {
-
-        log.info("Service : getUltraSrtNcst");
 
         String uri = UriComponentsBuilder.fromHttpUrl(baseUrl + "/getUltraSrtNcst")
             .queryParam("serviceKey", serviceKey)

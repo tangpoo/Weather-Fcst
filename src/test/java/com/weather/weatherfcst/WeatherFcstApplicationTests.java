@@ -1,4 +1,4 @@
-package com.midfcst.weatherfcst;
+package com.weather.weatherfcst;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.midfcst.weatherfcst.application;
+package com.weather.weatherfcst.application;
 
 import lombok.Data;
 
