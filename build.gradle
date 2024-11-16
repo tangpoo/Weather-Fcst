@@ -1,38 +1,49 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.3.5'
-    id 'io.spring.dependency-management' version '1.1.6'
-    id "io.freefair.aspectj" version "5.1.1"
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
 }
 
-group = 'com.midfcst'
-version = '0.0.1-SNAPSHOT'
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+
+allprojects {
+    group = 'com.midfcst'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = javaVersion
+
+    repositories {
+        mavenCentral()
     }
 }
 
-repositories {
-    mavenCentral()
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+
+    }
+
+    jar.enabled = true
+    bootJar.enabled = false
+
+    tasks.named('test') {
+        useJUnitPlatform()
+    }
 }
 
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.15.2'
-    implementation 'org.springframework.boot:spring-boot-starter-aop'
-
-    // AspectJ dependencies
-    implementation 'org.aspectj:aspectjweaver:1.9.19'
-
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+springBoot {
+    mainClass = 'com.midfcst.application.WeatherFcstApplication'
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
-}
+
+
