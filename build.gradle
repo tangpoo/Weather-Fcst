@@ -7,7 +7,7 @@ plugins {
 
 
 allprojects {
-    group = 'com.midfcst'
+    group = 'com.weather'
     version = '0.0.1-SNAPSHOT'
     sourceCompatibility = javaVersion
 
@@ -30,7 +30,6 @@ subprojects {
     dependencies {
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
-
     }
 
     jar.enabled = true
@@ -42,8 +41,5 @@ subprojects {
 }
 
 springBoot {
-    mainClass = 'com.midfcst.application.WeatherFcstApplication'
+    mainClass = 'com.weather.weatherfcst.WeatherFcstApplication'
 }
-
-
-

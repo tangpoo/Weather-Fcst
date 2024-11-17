@@ -16,7 +16,7 @@ public class MidWeatherFcstClient {
     private final RestTemplate restTemplate;
     private final String baseUrl = "http://apis.data.go.kr/1360000/MidFcstInfoService";
     private final String type = "JSON";
-    @Value("${mid-service-key}")
+    @Value("${service-key}")
     private String serviceKey;
 
     public ResponseEntity<String> getMidFcst(String pageNo, String numOfRows, String stnId,

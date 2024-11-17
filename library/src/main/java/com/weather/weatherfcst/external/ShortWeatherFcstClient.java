@@ -16,7 +16,7 @@ public class ShortWeatherFcstClient {
     private final RestTemplate restTemplate;
     private final String baseUrl = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0";
     private final String type = "JSON";
-    @Value("${short-service-key}")
+    @Value("${service-key}")
     private String serviceKey;
 
     public ResponseEntity<String> getUltraSrtNcst(String pageNo, String numOfRows,
