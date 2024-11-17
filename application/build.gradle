@@ -1,7 +1,3 @@
-springBoot {
-    mainClass = 'com.weather.weatherfcst.WeatherFcstApplication'
-}
-
 jar.enabled = false
 bootJar.enabled = true
 
